@@ -1,0 +1,60 @@
+{
+  "name": "basqaru/basqaru",
+  "description": "A collection of full-stack components for accelerated Laravel development.",
+  "license": "MIT",
+  "require": {
+    "php": "^8.1",
+    "ext-intl": "*",
+    "composer-runtime-api": "^2.1"
+  },
+  "require-dev": {
+    "doctrine/dbal": "^3.2",
+    "laravel/pint": "^1.0",
+    "league/csv": "9.11.0",
+    "league/flysystem-aws-s3-v3": "^3.0",
+    "nunomaduro/larastan": "^2.2",
+    "nunomaduro/termwind": "^1.0",
+    "orchestra/testbench": "^8.0",
+    "pestphp/pest": "^2.0",
+    "pestphp/pest-plugin-laravel": "^2.0",
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan": "^1.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "Basqaru\\Components\\": "packages/components/src",
+      "Basqaru\\Forms\\": "packages/forms/src",
+      "Basqaru\\Support\\": "packages/support/src",
+      "Basqaru\\Tests\\": "tests/src"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true,
+      "pestphp/pest-plugin": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "scripts": {
+    "cs": [
+      "pint",
+      "npm run prettier"
+    ],
+    "pint": "pint",
+    "test:pest": "pest --parallel",
+    "test:phpstan": "phpstan analyse",
+    "test": [
+      "@test:pest",
+      "@test:phpstan"
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "path",
+      "url": "packages/support"
+    }
+  ]
+}
