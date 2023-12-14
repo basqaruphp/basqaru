@@ -11,6 +11,4 @@
 composer.phar
 Thumbs.db
 phpunit.xml
-/packages/forms/vendor
-/packages/support/vendor
-/packages/components/vendor
+/packages/**/**/vendor
